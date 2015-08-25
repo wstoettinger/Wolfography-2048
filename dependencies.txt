@@ -1,0 +1,7 @@
+# This dependencies file lists all third-party dependencies for this project.
+#
+# Run 'pip install -r dependencies.txt -t lib/' to install these dependencies
+# in `lib/` subdirectory.
+#
+# Note: The `lib` directory is copied to web/lib in the build process and then  added to `sys.path` by `appengine_config.py`.
+Flask==0.10
