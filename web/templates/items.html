@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block body %}
+  <div class="row colgroup">
+
+    <div class="col span-4 box">
+      <h3>Categories <small>(<a href="/">all</a>&nbsp;|&nbsp;<a href="/new/cat">add</a>)</small></h3>
+      <ul class="categories">
+        {% for cat in categories %}
+        <li><a href="/cat/{{cat.name}}">{{ cat.name }}</a> ({{cat.item_count}})</li>
+        {% else %}
+        <li><em>Unbelievable.  No categories found.</em></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="col span-8 box">
+      <h3>Items <small>(<a href="/new/item">add</a>)</small></h3>
+       <ul class="items">
+        {% for it in items %}
+        <li><a href="/item/{{it.id}}">{{ it.name }}</a>
+        (<a href="/item/{{it.id}}/edit">edit</a>&nbsp;|&nbsp;<a href="/item/{{it.id}}/delete">delete</a>)</li>
+        {% else %}
+        <li><em>No items found.</em></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  {% endblock %}

@@ -5,3 +5,4 @@
 #
 # Note: The `lib` directory is copied to web/lib in the build process and then  added to `sys.path` by `appengine_config.py`.
 Flask==0.10
+markdown

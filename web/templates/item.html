@@ -1,0 +1,8 @@
+{% extends "layout.html" %}
+{% block body %}
+  <div class="row box">
+      <h3>{{ item.name }}<small>(<a href="/edit/item/{{item.id}}">edit</a> | <a href="/delete/item/{{item.id}}">delete</a>)</small></h3>
+      <p>{{ item.description }}</p>
+    </div>
+  </div>
+  {% endblock %}

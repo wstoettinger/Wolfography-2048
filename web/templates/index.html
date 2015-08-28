@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block injectContent %}
+<div class="row colgroup">
+  <div class="col span-4 box">
+    <h3>Sidebar</h3>
+  </div>
+  <div class="col span-8 box">
+    <h3>Content</h3>
+    {% if content %}
+      {{ content|safe }}
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
