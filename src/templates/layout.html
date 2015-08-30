@@ -4,17 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Wolfography | Photography by Wolfgang Stöttinger</title>
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.8/slick.css"/>
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='slick-theme.css') }}"/>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.slick/1.5.8/slick.css"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/slick-theme.css') }}"/>
+  <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
   {% block injectHead %}{% endblock %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
   <header>
     <div class="nav-bar">
-      <nav class="nav">
+      <nav class="mynav container">
        <div class="logo left"> 
-         <a href="/"><img src="http://www.wolfography.at/application/files/cache/798bcd907015479bd4ea81b3314c94b2.png" alt="Wolfography Logo" width="300" height="60" class="ccm-image-block img-responsive bID-183" title="Wolfography"></a>
+         <a href="/"><img src="http://www.wolfography.at/application/files/cache/798bcd907015479bd4ea81b3314c94b2.png" alt="Wolfography Logo" width="300" height="60" title="Wolfography"></a>
          <span class="menu-toggle right"><a href="#"></a></span>
        </div>
        <div class="menu right">
@@ -46,9 +47,17 @@
    </div>
  </header>
  <main>
+  {% block main %} 
   <div class="container">
-    {% block injectContent %}{% endblock %}
+    {% block mainContainer %} 
+    <div class="box">
+      {% if content %}
+      {{ content|safe }}
+      {% endif %}
+    </div>
+    {% endblock %}
   </div>
+  {% endblock %}
 </main>
 <footer>
   <div class="top">
@@ -58,9 +67,11 @@
    <div class="container">Footer 2</div>
  </div>
 </footer>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
-  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.5.8/slick.min.js"></script>
-  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-  {% block injectBody %}{% endblock %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+<script src="//cdn.jsdelivr.net/jquery.slick/1.5.8/slick.min.js"></script>
+<script src="{{ url_for('static', filename='lib/holder.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% block injectBody %}{% endblock %}
 </body>
 </html>

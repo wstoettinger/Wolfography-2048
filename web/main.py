@@ -23,7 +23,7 @@ app.config.from_object(__name__)
 def home():
     """Return a friendly HTTP greeting."""
 
-    return render_template('index.html')
+    return render_template('page_home.html')
 
 
 @app.route('/fotos')
